@@ -139,7 +139,7 @@
 
     /* ─── HERO ─────────────────────────────────── */
     .hero {
-      background: var(--charcoal) url('img/oficina-02.jpg') center / cover no-repeat;
+      background: var(--charcoal) url('img/exterior.jpeg') center / cover no-repeat;
       color: var(--white);
       min-height: 88vh;
       display: flex;
@@ -408,13 +408,11 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      grid-template-rows: 280px 220px;
-      gap: 3px;
+      grid-template-columns: repeat(3, 1fr);
+      height: 320px;
     }
 
-    .gallery-item { overflow: hidden; position: relative; }
-    .gallery-item:first-child { grid-row: 1 / 3; }
+    .gallery-item { overflow: hidden; }
 
     .gallery-item img {
       width: 100%;
@@ -424,14 +422,11 @@
       transition: transform 0.5s ease;
     }
 
-    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item:hover img { transform: scale(1.05); }
 
-    @media (max-width: 700px) {
-      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, 200px); }
-      .gallery-item:first-child { grid-row: auto; }
-    }
-    @media (max-width: 420px) {
-      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 180px); }
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; height: 220px; }
+      .gallery-item:last-child { display: none; }
     }
 
     /* ─── CREDENCIALS ───────────────────────────── */
@@ -928,7 +923,7 @@
   <div class="container">
     <div class="about-inner">
       <div class="about-img-wrap">
-        <img src="img/oficina-04.jpg" alt="Interior d'Assessors Garrotxa a Olot" loading="lazy" />
+        <img src="img/recepcio.jpeg" alt="Recepció d'Assessors Garrotxa a Olot" loading="lazy" />
         <div class="about-img-badges">
           <span class="about-badge">Col·legiats</span>
           <span class="about-badge">Olot, des de 1995</span>
@@ -954,11 +949,9 @@
 <!-- ══════════════════════════════════════════ GALERIA -->
 <section class="gallery" aria-label="Instal·lacions">
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="img/oficina-01.jpg" alt="Façana exterior Assessors Garrotxa" loading="lazy" /></div>
-    <div class="gallery-item"><img src="img/oficina-06.jpg" alt="Recepció amb sostre de fusta" loading="lazy" /></div>
-    <div class="gallery-item"><img src="img/oficina-07.jpg" alt="Doble alçada interior" loading="lazy" /></div>
-    <div class="gallery-item"><img src="img/oficina-05.jpg" alt="Despatxos amb mampares de vidre" loading="lazy" /></div>
-    <div class="gallery-item"><img src="img/oficina-09.jpg" alt="Sala de reunions gran" loading="lazy" /></div>
+    <div class="gallery-item"><img src="img/atri.jpeg" alt="Atri interior" loading="lazy" /></div>
+    <div class="gallery-item"><img src="img/finestra.jpeg" alt="Zona d'espera" loading="lazy" /></div>
+    <div class="gallery-item"><img src="img/sala-reunions.jpeg" alt="Sala de reunions" loading="lazy" /></div>
   </div>
 </section>
 
