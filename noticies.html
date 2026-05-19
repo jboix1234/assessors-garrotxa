@@ -279,7 +279,7 @@
       <div class="footer-brand">
                 <picture style="display:block;margin-bottom:16px">
           <source srcset="img/logo.avif" type="image/avif" />
-          <img src="img/logo.png" alt="Assessors Garrotxa" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:.85" />
+          <img src="img/logo.png" alt="Assessors Garrotxa" style="height:52px;width:auto;background:#fff;padding:5px 12px;border-radius:5px;display:block;" />
         </picture>
         <p>Gestoria i assessoria integral per a autònoms i empreses de la Garrotxa des de 1995.</p>
       </div>
@@ -457,12 +457,7 @@
     empty.style.display = 'none';
     grid.innerHTML = items.map(a => `
       <div class="news-card">
-        <div class="news-card-img">
-          ${a.foto
-            ? `<img src="${a.foto}" alt="${esc(a.titol)}" loading="lazy" style="width:100%;height:100%;object-fit:cover" />`
-            : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="40" height="40" style="opacity:.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>`
-          }
-        </div>
+        ${a.foto ? `<div class="news-card-img"><img src="${a.foto}" alt="${esc(a.titol)}" loading="lazy" style="width:100%;height:100%;object-fit:cover" /></div>` : ''}
         <div class="news-card-body">
           <span class="news-badge badge-${a.tipus}">${labels[a.tipus] || a.tipus}</span>
           <h3>${esc(a.titol)}</h3>
