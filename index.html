@@ -1071,29 +1071,33 @@
       <div class="contact-form">
         <h3>Envieu-nos un missatge</h3>
         <form id="contact-form">
+          <input type="hidden" name="access_key" value="W3F_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="Nova consulta des de la web – Assessors Garrotxa" />
+          <input type="hidden" name="from_name" value="Web Assessors Garrotxa" />
+          <input type="checkbox" name="botcheck" style="display:none" />
           <div class="form-row">
             <div class="form-group">
               <label for="nom">Nom *</label>
-              <input type="text" id="nom" placeholder="El vostre nom" />
+              <input type="text" id="nom" name="nom" placeholder="El vostre nom" />
             </div>
             <div class="form-group">
               <label for="cognom">Cognoms *</label>
-              <input type="text" id="cognom" placeholder="Els vostres cognoms" />
+              <input type="text" id="cognom" name="cognom" placeholder="Els vostres cognoms" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">Correu electrònic *</label>
-              <input type="email" id="email" placeholder="correu@exemple.com" />
+              <input type="email" id="email" name="email" placeholder="correu@exemple.com" />
             </div>
             <div class="form-group">
               <label for="tel">Telèfon</label>
-              <input type="tel" id="tel" placeholder="6XX XXX XXX" />
+              <input type="tel" id="tel" name="tel" placeholder="6XX XXX XXX" />
             </div>
           </div>
           <div class="form-group">
             <label for="servei">Àrea d'interès</label>
-            <select id="servei">
+            <select id="servei" name="servei">
               <option value="">Seleccioneu un servei...</option>
               <option value="Assessoria Fiscal">Assessoria Fiscal</option>
               <option value="Assessoria Laboral">Assessoria Laboral</option>
@@ -1105,21 +1109,21 @@
           </div>
           <div class="form-group">
             <label for="missatge">Missatge *</label>
-            <textarea id="missatge" placeholder="Expliqueu-nos breument la vostra consulta..."></textarea>
+            <textarea id="missatge" name="missatge" placeholder="Expliqueu-nos breument la vostra consulta..."></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="privacitat" />
             <label for="privacitat">He llegit i accepto la <a href="#">política de privacitat</a> i el tractament de les meves dades personals.</label>
           </div>
           <div id="form-error" style="display:none;background:rgba(139,34,49,.08);border:1px solid rgba(139,34,49,.25);color:var(--red);font-size:13px;padding:10px 14px;border-radius:var(--radius);margin-bottom:14px;"></div>
-          <button type="submit" class="btn-submit">Enviar missatge</button>
+          <button type="submit" class="btn-submit" id="btn-submit">Enviar missatge</button>
         </form>
         <div id="form-success" style="display:none;text-align:center;padding:32px 0">
           <div style="width:52px;height:52px;background:rgba(5,150,105,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
             <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" width="24" height="24"><polyline points="20 6 9 17 4 12"/></svg>
           </div>
-          <h3 style="font-size:1.2rem;margin-bottom:10px">Missatge enviat!</h3>
-          <p style="font-size:14px;color:var(--grey-txt)">S'ha obert el vostre gestor de correu amb el missatge preparat.<br>Premeu <strong>Enviar</strong> per completar la consulta.</p>
+          <h3 style="font-size:1.2rem;margin-bottom:10px">Missatge enviat correctament!</h3>
+          <p style="font-size:14px;color:var(--grey-txt)">Hem rebut la vostra consulta. Ens posarem en contacte amb vosaltres en breu.</p>
         </div>
       </div>
     </div>
@@ -1182,46 +1186,49 @@
 </footer>
 
 <script>
-  document.getElementById('contact-form').addEventListener('submit', function(e) {
+  document.getElementById('contact-form').addEventListener('submit', async function(e) {
     e.preventDefault();
 
     const nom      = document.getElementById('nom').value.trim();
     const cognom   = document.getElementById('cognom').value.trim();
     const email    = document.getElementById('email').value.trim();
-    const tel      = document.getElementById('tel').value.trim();
-    const servei   = document.getElementById('servei').value;
     const missatge = document.getElementById('missatge').value.trim();
     const priv     = document.getElementById('privacitat').checked;
     const errEl    = document.getElementById('form-error');
+    const btn      = document.getElementById('btn-submit');
 
     errEl.style.display = 'none';
 
-    if (!nom || !cognom) { return showErr('Omple el nom i els cognoms.'); }
+    if (!nom || !cognom)  { return showErr('Omple el nom i els cognoms.'); }
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return showErr('Introdueix un correu electrònic vàlid.'); }
-    if (!missatge) { return showErr('Escriu el teu missatge.'); }
-    if (!priv) { return showErr('Has d\'acceptar la política de privacitat.'); }
+    if (!missatge)        { return showErr('Escriu el teu missatge.'); }
+    if (!priv)            { return showErr("Has d'acceptar la política de privacitat."); }
 
-    const subject = 'Nova consulta web – ' + nom + ' ' + cognom;
-    const lines = [
-      'Nom i cognoms: ' + nom + ' ' + cognom,
-      'Correu: ' + email,
-      tel      ? 'Telèfon: ' + tel      : null,
-      servei   ? 'Servei: '  + servei   : null,
-      '',
-      'Missatge:',
-      missatge,
-      '',
-      '---',
-      'Enviat des del formulari web d\'Assessors Garrotxa'
-    ].filter(function(l){ return l !== null; }).join('\n');
+    btn.textContent = 'Enviant...';
+    btn.disabled = true;
 
-    window.location.href =
-      'mailto:info@assessorsgarrotxa.com' +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body='    + encodeURIComponent(lines);
+    try {
+      const formData = new FormData(this);
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+      const data = await res.json();
 
-    document.getElementById('contact-form').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
+      if (data.success) {
+        document.getElementById('contact-form').style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        showErr(data.message || "Error en l'enviament. Torneu a intentar-ho.");
+        btn.textContent = 'Enviar missatge';
+        btn.disabled = false;
+      }
+    } catch(err) {
+      showErr('Error de connexió. Comproveu la vostra xarxa i torneu a intentar-ho.');
+      btn.textContent = 'Enviar missatge';
+      btn.disabled = false;
+    }
 
     function showErr(msg) {
       errEl.textContent = msg;
