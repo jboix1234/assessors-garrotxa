@@ -1070,51 +1070,57 @@
 
       <div class="contact-form">
         <h3>Envieu-nos un missatge</h3>
-        <form action="https://formsubmit.co/jboix14@gmail.com" method="POST">
-          <input type="hidden" name="_subject" value="Nova consulta des de la web – Assessors Garrotxa" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://jboix1234.github.io/assessors-garrotxa/" />
+        <form id="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="nom">Nom *</label>
-              <input type="text" id="nom" name="nom" placeholder="El vostre nom" required />
+              <input type="text" id="nom" placeholder="El vostre nom" />
             </div>
             <div class="form-group">
               <label for="cognom">Cognoms *</label>
-              <input type="text" id="cognom" name="cognom" placeholder="Els vostres cognoms" required />
+              <input type="text" id="cognom" placeholder="Els vostres cognoms" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">Correu electrònic *</label>
-              <input type="email" id="email" name="email" placeholder="correu@exemple.com" required />
+              <input type="email" id="email" placeholder="correu@exemple.com" />
             </div>
             <div class="form-group">
               <label for="tel">Telèfon</label>
-              <input type="tel" id="tel" name="tel" placeholder="6XX XXX XXX" />
+              <input type="tel" id="tel" placeholder="6XX XXX XXX" />
             </div>
           </div>
           <div class="form-group">
             <label for="servei">Àrea d'interès</label>
-            <select id="servei" name="servei">
+            <select id="servei">
               <option value="">Seleccioneu un servei...</option>
-              <option value="fiscal">Assessoria Fiscal</option>
-              <option value="laboral">Assessoria Laboral</option>
-              <option value="mercantil">Assessoria Mercantil</option>
-              <option value="comptable">Comptabilitat</option>
-              <option value="altres">Altres consultes</option>
+              <option value="Assessoria Fiscal">Assessoria Fiscal</option>
+              <option value="Assessoria Laboral">Assessoria Laboral</option>
+              <option value="Assessoria Mercantil">Assessoria Mercantil</option>
+              <option value="Comptabilitat">Comptabilitat</option>
+              <option value="Contractes">Contractes</option>
+              <option value="Altres consultes">Altres consultes</option>
             </select>
           </div>
           <div class="form-group">
             <label for="missatge">Missatge *</label>
-            <textarea id="missatge" name="missatge" placeholder="Expliqueu-nos breument la vostra consulta..." required></textarea>
+            <textarea id="missatge" placeholder="Expliqueu-nos breument la vostra consulta..."></textarea>
           </div>
           <div class="form-check">
-            <input type="checkbox" id="privacitat" name="privacitat" required />
+            <input type="checkbox" id="privacitat" />
             <label for="privacitat">He llegit i accepto la <a href="#">política de privacitat</a> i el tractament de les meves dades personals.</label>
           </div>
+          <div id="form-error" style="display:none;background:rgba(139,34,49,.08);border:1px solid rgba(139,34,49,.25);color:var(--red);font-size:13px;padding:10px 14px;border-radius:var(--radius);margin-bottom:14px;"></div>
           <button type="submit" class="btn-submit">Enviar missatge</button>
         </form>
+        <div id="form-success" style="display:none;text-align:center;padding:32px 0">
+          <div style="width:52px;height:52px;background:rgba(5,150,105,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" width="24" height="24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-size:1.2rem;margin-bottom:10px">Missatge enviat!</h3>
+          <p style="font-size:14px;color:var(--grey-txt)">S'ha obert el vostre gestor de correu amb el missatge preparat.<br>Premeu <strong>Enviar</strong> per completar la consulta.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1175,5 +1181,53 @@
   </div>
 </footer>
 
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const nom      = document.getElementById('nom').value.trim();
+    const cognom   = document.getElementById('cognom').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const tel      = document.getElementById('tel').value.trim();
+    const servei   = document.getElementById('servei').value;
+    const missatge = document.getElementById('missatge').value.trim();
+    const priv     = document.getElementById('privacitat').checked;
+    const errEl    = document.getElementById('form-error');
+
+    errEl.style.display = 'none';
+
+    if (!nom || !cognom) { return showErr('Omple el nom i els cognoms.'); }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return showErr('Introdueix un correu electrònic vàlid.'); }
+    if (!missatge) { return showErr('Escriu el teu missatge.'); }
+    if (!priv) { return showErr('Has d\'acceptar la política de privacitat.'); }
+
+    const subject = 'Nova consulta web – ' + nom + ' ' + cognom;
+    const lines = [
+      'Nom i cognoms: ' + nom + ' ' + cognom,
+      'Correu: ' + email,
+      tel      ? 'Telèfon: ' + tel      : null,
+      servei   ? 'Servei: '  + servei   : null,
+      '',
+      'Missatge:',
+      missatge,
+      '',
+      '---',
+      'Enviat des del formulari web d\'Assessors Garrotxa'
+    ].filter(function(l){ return l !== null; }).join('\n');
+
+    window.location.href =
+      'mailto:info@assessorsgarrotxa.com' +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='    + encodeURIComponent(lines);
+
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+
+    function showErr(msg) {
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+    }
+  });
+</script>
 </body>
 </html>
