@@ -761,6 +761,16 @@
     .footer-bottom-links { display: flex; gap: 24px; }
     .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
     .footer-bottom a:hover { color: var(--white); }
+
+    /* ── Scroll animations ──────────────────────── */
+    .anim {
+      opacity: 0;
+      transform: translateY(38px);
+      transition: opacity .65s cubic-bezier(.22,.61,.36,1), transform .65s cubic-bezier(.22,.61,.36,1);
+    }
+    .anim.from-left  { transform: translateX(-48px); }
+    .anim.from-right { transform: translateX(48px); }
+    .anim.visible    { opacity: 1; transform: none; }
   </style>
 </head>
 <body>
@@ -801,15 +811,15 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hero-stat-value">+30</div>
+          <div class="hero-stat-value" data-counter="30" data-prefix="+">+30</div>
           <div class="hero-stat-label">Anys d'experiència</div>
         </div>
         <div>
-          <div class="hero-stat-value">+500</div>
+          <div class="hero-stat-value" data-counter="500" data-prefix="+">+500</div>
           <div class="hero-stat-label">Clients actius</div>
         </div>
         <div>
-          <div class="hero-stat-value">4</div>
+          <div class="hero-stat-value" data-counter="4" data-prefix="">4</div>
           <div class="hero-stat-label">Àrees d'assessoria</div>
         </div>
       </div>
@@ -1247,6 +1257,90 @@
   burger.addEventListener('click',function(){ links.classList.toggle('open'); });
   links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
   document.addEventListener('click',function(e){ if(!e.target.closest('nav')) links.classList.remove('open'); });
+})();
+</script>
+<script>
+(function(){
+  /* ── Scroll reveal ── */
+  var selectors = [
+    '.services-head', '.srv-card',
+    '.about-img-wrap', '.about-content',
+    '.gallery-item',
+    '.process-head', '.process-step',
+    '.reviews-head', '.review-card',
+    '.contact-detail', '#contact-form',
+    '.section-label:not(.services-head .section-label):not(.process-head .section-label):not(.reviews-head .section-label)'
+  ];
+
+  var allEls = document.querySelectorAll(
+    '.services-head, .srv-card, .about-img-wrap, .about-content, ' +
+    '.gallery-item, .process-head, .process-step, ' +
+    '.reviews-head, .review-card, .contact-detail, #contact-form'
+  );
+
+  // Apply stagger to sibling groups
+  var groups = ['.srv-cards', '.process-steps', '.reviews-grid', '.gallery-grid'];
+  groups.forEach(function(g){
+    var parent = document.querySelector(g);
+    if (!parent) return;
+    Array.from(parent.children).forEach(function(child, i){
+      child.classList.add('anim');
+      child.style.transitionDelay = (i * 0.13) + 's';
+    });
+  });
+
+  // Single elements
+  ['.services-head', '.process-head', '.reviews-head', '.contact-detail', '#contact-form', '.contact-inner > div:last-child'].forEach(function(s){
+    document.querySelectorAll(s).forEach(function(el, i){
+      if (!el.classList.contains('anim')) {
+        el.classList.add('anim');
+        el.style.transitionDelay = (i * 0.1) + 's';
+      }
+    });
+  });
+
+  // About: slide from sides
+  var aboutImg = document.querySelector('.about-img-wrap');
+  var aboutContent = document.querySelector('.about-content');
+  if (aboutImg) { aboutImg.classList.add('anim','from-left'); }
+  if (aboutContent) { aboutContent.classList.add('anim','from-right'); aboutContent.style.transitionDelay = '0.1s'; }
+
+  // Observe all .anim elements
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.anim').forEach(function(el){ observer.observe(el); });
+
+  /* ── Counter animation ── */
+  function animateCount(el, target, prefix, duration){
+    var start = null;
+    function step(ts){
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = prefix + Math.round(eased * target);
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var counterObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if (entry.isIntersecting){
+        var el = entry.target;
+        animateCount(el, parseInt(el.dataset.counter), el.dataset.prefix || '', 2000);
+        counterObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-counter]').forEach(function(el){ counterObs.observe(el); });
 })();
 </script>
 </body>
