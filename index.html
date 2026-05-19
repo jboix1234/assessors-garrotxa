@@ -131,6 +131,10 @@
     @media (max-width: 820px) {
       .nav-links { display: none; }
       .nav-burger { display: flex; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--grey-mid); box-shadow: 0 8px 24px rgba(0,0,0,.08); padding: 16px 28px 24px; gap: 0; z-index: 99; }
+      .nav-links.open li { border-bottom: 1px solid var(--grey-mid); }
+      .nav-links.open a { display: block; padding: 14px 0; font-size: 15px; }
+      .nav-links.open .nav-cta { display: block; text-align: center; }
     }
 
     /* ─── HERO ─────────────────────────────────── */
@@ -1235,6 +1239,15 @@
       errEl.style.display = 'block';
     }
   });
+</script>
+<script>
+(function(){
+  var burger=document.querySelector('.nav-burger');
+  var links=document.querySelector('.nav-links');
+  burger.addEventListener('click',function(){ links.classList.toggle('open'); });
+  links.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ links.classList.remove('open'); }); });
+  document.addEventListener('click',function(e){ if(!e.target.closest('nav')) links.classList.remove('open'); });
+})();
 </script>
 </body>
 </html>
