@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Assessoria Laboral a Olot – Nòmines, contractes i relacions laborals. Assessors Garrotxa des de 1995." />
+  <title>Assessoria Laboral – Assessors Garrotxa</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--red:#8b2231;--red-dark:#6d1a26;--charcoal:#363a35;--black:#1a1a1a;--grey:#f4f3f1;--grey-mid:#dddbd7;--grey-txt:#5c5c5c;--white:#ffffff;--radius:6px}
+    html{scroll-behavior:smooth}
+    body{font-family:'Segoe UI',Arial,sans-serif;font-size:16px;line-height:1.75;color:var(--black);background:var(--white)}
+    h1,h2,h3,h4{font-family:Georgia,serif;line-height:1.2}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    .container{max-width:1120px;margin:0 auto;padding:0 28px}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block}
+    .section-title{font-size:clamp(1.8rem,3.5vw,2.5rem);color:var(--black);margin-bottom:18px;font-weight:700}
+    nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--grey-mid);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .nav-logo-img{height:52px;width:auto;display:block}
+    .nav-links{display:flex;align-items:center;gap:32px;list-style:none}
+    .nav-links a{color:var(--grey-txt);font-size:13px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+    .nav-links a:hover{color:var(--black)}
+    .nav-links a.active{color:var(--red);font-weight:700}
+    .nav-cta{background:var(--red)!important;color:var(--white)!important;padding:9px 20px;border-radius:var(--radius);font-weight:600!important;transition:background .2s!important}
+    .nav-cta:hover{background:var(--red-dark)!important}
+    .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+    .nav-burger span{display:block;width:24px;height:2px;background:var(--black);border-radius:2px}
+    @media(max-width:820px){.nav-links{display:none}.nav-burger{display:flex}}
+    .page-hero{background:var(--charcoal);color:var(--white);padding:72px 0 64px}
+    .breadcrumb{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:24px}
+    .breadcrumb a{color:rgba(255,255,255,.5);transition:color .2s}
+    .breadcrumb a:hover{color:rgba(255,255,255,.85)}
+    .breadcrumb span{margin:0 8px;opacity:.4}
+    .page-hero h1{font-size:clamp(2rem,5vw,3rem);color:var(--white);margin-bottom:18px}
+    .page-hero p{font-size:17px;color:rgba(255,255,255,.65);max-width:600px;margin-bottom:32px;line-height:1.7}
+    .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--red);color:var(--white);padding:13px 26px;border-radius:var(--radius);font-weight:600;font-size:15px;transition:background .2s,transform .15s;display:inline-block}
+    .btn-primary:hover{background:var(--red-dark);transform:translateY(-2px)}
+    .btn-secondary{border:1.5px solid rgba(255,255,255,.3);color:var(--white);padding:12px 24px;border-radius:var(--radius);font-weight:600;font-size:15px;transition:border-color .2s;display:inline-block}
+    .btn-secondary:hover{border-color:rgba(255,255,255,.7)}
+    .content-section{padding:88px 0}
+    .bg-grey{background:var(--grey)}
+    .items-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+    @media(max-width:860px){.items-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.items-grid{grid-template-columns:1fr}}
+    .item-card{background:var(--white);border:1px solid var(--grey-mid);border-radius:var(--radius);padding:32px 24px;border-top:3px solid transparent;transition:border-top-color .2s,box-shadow .2s}
+    .item-card:hover{border-top-color:var(--red);box-shadow:0 8px 28px rgba(0,0,0,.08)}
+    .item-icon{color:var(--red);margin-bottom:14px}
+    .item-card h3{font-size:1.05rem;margin-bottom:8px}
+    .item-card p{font-size:14px;color:var(--grey-txt);line-height:1.7}
+    .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+    @media(max-width:820px){.benefits-grid{grid-template-columns:1fr}}
+    .benefit-card{text-align:center;padding:8px}
+    .benefit-icon{width:56px;height:56px;background:rgba(139,34,49,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--red)}
+    .benefit-card h3{font-size:1.05rem;margin-bottom:10px}
+    .benefit-card p{font-size:14px;color:var(--grey-txt);line-height:1.7}
+    .faq-list{margin-top:48px;max-width:760px;margin-left:auto;margin-right:auto}
+    .faq-item{border-bottom:1px solid var(--grey-mid)}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;width:100%;padding:22px 0;background:none;border:none;cursor:pointer;text-align:left;font-size:16px;font-weight:600;color:var(--black);font-family:Georgia,serif;gap:16px}
+    .faq-plus{color:var(--red);font-size:22px;flex-shrink:0;transition:transform .2s;line-height:1}
+    .faq-item.open .faq-plus{transform:rotate(45deg)}
+    .faq-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+    .faq-body p{padding-bottom:22px;font-size:15px;color:var(--grey-txt);line-height:1.8}
+    .faq-item.open .faq-body{max-height:400px}
+    .cta-banner{background:var(--charcoal);color:var(--white);padding:80px 0;text-align:center}
+    .cta-banner h2{font-size:clamp(1.7rem,3.5vw,2.3rem);color:var(--white);margin-bottom:16px}
+    .cta-banner p{font-size:17px;color:rgba(255,255,255,.65);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto}
+    footer{background:var(--charcoal);color:rgba(255,255,255,.55)}
+    .footer-main{padding:56px 0 40px;display:grid;grid-template-columns:2fr 1fr 1fr 1.3fr;gap:40px}
+    @media(max-width:900px){.footer-main{grid-template-columns:1fr 1fr}}
+    @media(max-width:520px){.footer-main{grid-template-columns:1fr}}
+    .footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .footer-brand-mark{width:32px;height:32px;background:var(--red);border-radius:3px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .footer-brand-text{font-family:Georgia,serif;font-size:15px;font-weight:700;color:var(--white)}
+    .footer-brand-text span{color:#e8a0ab}
+    .footer-brand>p{font-size:14px;line-height:1.7;max-width:250px}
+    .footer-col h4{font-family:Georgia,serif;font-size:12px;color:var(--white);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+    .footer-col ul{list-style:none}
+    .footer-col ul li{margin-bottom:9px}
+    .footer-col ul a{font-size:14px;color:rgba(255,255,255,.55);transition:color .2s}
+    .footer-col ul a:hover{color:var(--white)}
+    .footer-col address{font-style:normal;font-size:14px;line-height:1.85}
+    .footer-col address a{color:#e8a0ab}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px}
+    .footer-bottom-links{display:flex;gap:20px}
+    .footer-bottom a{color:rgba(255,255,255,.4);transition:color .2s}
+    .footer-bottom a:hover{color:var(--white)}
+  </style>
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html"><picture><source srcset="img/logo.avif" type="image/avif" /><img src="img/logo.png" alt="Assessors Garrotxa" class="nav-logo-img" /></picture></a>
+    <ul class="nav-links">
+      <li><a href="index.html#serveis" class="active">Serveis</a></li>
+      <li><a href="index.html#qui-som">Qui som</a></li>
+      <li><a href="contractes.html">Contractes</a></li>
+      <li><a href="noticies.html">Notícies</a></li>
+      <li><a href="index.html#contacte" class="nav-cta">Contactar</a></li>
+    </ul>
+    <button class="nav-burger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inici</a><span>&rsaquo;</span><a href="index.html#serveis">Serveis</a><span>&rsaquo;</span>Assessoria Laboral</div>
+    <h1>Assessoria Laboral</h1>
+    <p>Gestionem totes les relacions laborals de la vostra empresa amb total seguretat jurídica: des de les altes fins als acomiadaments, sense cap complicació.</p>
+    <div class="hero-btns">
+      <a href="index.html#contacte" class="btn-primary">Sol·licitar consulta gratuïta</a>
+      <a href="tel:972268260" class="btn-secondary">&#128222; 972 26 82 60</a>
+    </div>
+  </div>
+</section>
+
+<section class="content-section bg-grey">
+  <div class="container">
+    <span class="section-label">Què gestionem</span>
+    <h2 class="section-title">Gestió laboral integral</h2>
+    <div class="items-grid">
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
+        <h3>Altes i Baixes – Seguretat Social</h3>
+        <p>Gestionem les altes, baixes i variacions de dades dels treballadors a la Seguretat Social, assegurant la correcta afiliació en tot moment.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
+        <h3>Nòmines i Cotitzacions SEPE</h3>
+        <p>Elaboració mensual de nòmines, gestió dels models TC1 i TC2, declaracions del SEPE i comunicació de les bases de cotització a la SS.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+        <h3>Contractes de Treball</h3>
+        <p>Redacció de contractes adequats a cada situació: indefinits, temporals, formació, pràctiques, a temps parcial i totes les seves variants.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="14"/></svg></div>
+        <h3>ERTOs i Baixes Mèdiques</h3>
+        <p>Gestió d'expedients de regulació temporal d'ocupació, incapacitats temporals i comunicació de situacions d'IT davant la mútua i la SS.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+        <h3>Assessorament en Acomiadaments</h3>
+        <p>Anàlisi de la situació, càlcul d'indemnitzacions, redacció de cartes d'acomiadament i gestió de l'expedient davant el SEPE i els jutjats.</p>
+      </div>
+      <div class="item-card">
+        <div class="item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="32" height="32"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Prevenció de Riscos Laborals</h3>
+        <p>Coordinació amb el servei de prevenció, elaboració del pla de prevenció i assessorament en les obligacions en matèria de seguretat laboral.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section">
+  <div class="container">
+    <span class="section-label">Per què nosaltres</span>
+    <h2 class="section-title">Tranquil·litat laboral total</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="26" height="26"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+        <h3>Gestió mensual puntual</h3>
+        <p>Nòmines i cotitzacions sempre a temps, sense errors ni retards. Teniu els vostres treballadors ben atesos sense preocupacions administratives.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="26" height="26"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>Seguretat jurídica</h3>
+        <p>Contractes correctament redactats i tràmits ben fets des del primer dia, evitant sancions i litigis laborals costosos.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" width="26" height="26"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Assessorament personalitzat</h3>
+        <p>Cada empresa té la seva realitat. Us acompanyem en la presa de decisions laborals complexes amb consell adaptat a la vostra situació.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="content-section bg-grey">
+  <div class="container">
+    <span class="section-label">Preguntes freqüents</span>
+    <h2 class="section-title" style="text-align:center;">Dubtes laborals habituals</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q">Quin tipus de contracte és més adequat per a un nou treballador?<span class="faq-plus">+</span></button>
+        <div class="faq-body"><p>Depèn de la necessitat: indefinit ordinari, per obra o servei, eventual per circumstàncies de la producció, de formació i aprenentatge, etc. La reforma laboral de 2022 ha restringit molt els temporals. Us assessorem cas per cas per triar el contracte més adequat i evitar irregularitats.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quant costa acomiadar un treballador?<span class="faq-plus">+</span></button>
+        <div class="faq-body"><p>La indemnització per acomiadament improcedent és de 33 dies per any treballat (màxim 24 mensualitats) a partir del 12/02/2012. Per als anys anteriors s'apliquen 45 dies/any. Un acomiadament procedent pot no generar indemnització si hi ha causa justificada demostrable. Cal analitzar cada cas.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quan cal presentar les nòmines i les cotitzacions?<span class="faq-plus">+</span></button>
+        <div class="faq-body"><p>Les nòmines s'han de pagar en la data acordada al contracte (habitualment a finals de mes). Les cotitzacions a la Seguretat Social es liquiden el mes següent (del dia 1 al 28/29 del mes posterior). Nosaltres gestionem tots els venciments perquè no tingueu cap problema.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quines obligacions té una empresa amb la prevenció de riscos?<span class="faq-plus">+</span></button>
+        <div class="faq-body"><p>Tota empresa amb treballadors ha de tenir un pla de prevenció de riscos laborals, avaluació de riscos, planificació preventiva i informació/formació als treballadors. La grandària de l'empresa determina la modalitat d'organització preventiva. Us ajudem a complir totes les obligacions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <h2>Necessiteu ajuda amb la gestió laboral?</h2>
+    <p>Primera consulta gratuïta. Analitzem la vostra plantilla i us proposem la millor gestió.</p>
+    <a href="index.html#contacte" class="btn-primary">Parlar amb un expert laboral</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+                <picture style="display:block;margin-bottom:16px">
+          <source srcset="img/logo.avif" type="image/avif" />
+          <img src="img/logo.png" alt="Assessors Garrotxa" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:.85" />
+        </picture>
+        <p>Gestoria i assessoria integral per a autònoms i empreses de la Garrotxa des de 1995.</p>
+      </div>
+      <div class="footer-col"><h4>Serveis</h4><ul><li><a href="fiscal.html">Assessoria Fiscal</a></li><li><a href="laboral.html">Assessoria Laboral</a></li><li><a href="mercantil.html">Assessoria Mercantil</a></li><li><a href="comptable.html">Comptabilitat</a></li><li><a href="contractes.html">Contractes</a></li></ul></div>
+      <div class="footer-col"><h4>Empresa</h4><ul><li><a href="index.html#qui-som">Qui som</a></li><li><a href="index.html#proces">Com treballem</a></li><li><a href="index.html#ressenyes">Ressenyes</a></li><li><a href="index.html#contacte">Contacte</a></li></ul></div>
+      <div class="footer-col"><h4>Contacte</h4><address>Pg. de Barcelona, 2<br>17800 Olot (Girona)<br><br><a href="tel:972268260">972 26 82 60</a><br><a href="tel:638387547">638 387 547</a><br><a href="mailto:info@assessorsgarrotxa.com">info@assessorsgarrotxa.com</a></address></div>
+    </div>
+    <div class="footer-bottom"><span>&copy; 2025 Assessors Garrotxa S.L.</span><div class="footer-bottom-links"><a href="#">Avís legal</a><a href="#">Privacitat</a><a href="noticies.html?a=1" style="font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.05em" onmouseover="this.style.color='rgba(255,255,255,.4)'" onmouseout="this.style.color='rgba(255,255,255,.12)'">admin</a></div></div>
+  </div>
+</footer>
+<script>document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open');});});</script>
+</body></html>

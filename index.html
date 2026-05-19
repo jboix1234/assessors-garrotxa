@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Assessors Garrotxa – Gestoria i assessoria fiscal, laboral, mercantil i comptable a Olot des de 1995." />
+  <title>Assessors Garrotxa – Gestoria a Olot des de 1995</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:      #8b2231;
+      --red-dark: #6d1a26;
+      --charcoal: #363a35;
+      --black:    #1a1a1a;
+      --grey:     #f4f3f1;
+      --grey-mid: #dddbd7;
+      --grey-txt: #5c5c5c;
+      --white:    #ffffff;
+      --radius:   6px;
+      --shadow:   0 4px 24px rgba(0,0,0,0.09);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--black);
+      background: var(--white);
+    }
+
+    h1, h2, h3, h4 { font-family: Georgia, 'Times New Roman', serif; line-height: 1.2; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.8vw, 2.75rem);
+      color: var(--black);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--grey-txt);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* ─── NAV ──────────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--grey-mid);
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo-img { height: 52px; width: auto; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--grey-txt);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .nav-cta {
+      background: var(--red) !important;
+      color: var(--white) !important;
+      padding: 9px 20px;
+      border-radius: var(--radius);
+      font-weight: 600 !important;
+      letter-spacing: 0.03em !important;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--red-dark) !important; }
+
+    .nav-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-burger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--black);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+    }
+
+    /* ─── HERO ─────────────────────────────────── */
+    .hero {
+      background: var(--charcoal) url('img/exterior.jpeg') center / cover no-repeat;
+      color: var(--white);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .container { margin-left: 0; padding-left: clamp(28px, 5vw, 72px); }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(54,58,53,0.96) 45%, rgba(54,58,53,0.72) 100%);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 96px 0 72px;
+      max-width: 680px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.8);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 16px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .hero h1 em { font-style: normal; color: #e8a0ab; }
+
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.72);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 15px 30px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      padding: 14px 28px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: 15px;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { border-color: rgba(255,255,255,0.75); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 64px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-value {
+      font-family: Georgia, serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #e8a0ab;
+      line-height: 1;
+    }
+
+    .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+    /* ─── SERVICES ─────────────────────────────── */
+    .services { padding: 96px 0; background: var(--grey); }
+
+    .services-head { margin-bottom: 56px; }
+
+    .srv-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 860px) { .srv-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 480px) { .srv-cards { grid-template-columns: 1fr; } }
+
+    .srv-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 36px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid var(--grey-mid);
+      border-bottom: 3px solid transparent;
+      transition: border-bottom-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .srv-card:hover {
+      border-bottom-color: var(--red);
+      box-shadow: 0 10px 36px rgba(0,0,0,0.09);
+      transform: translateY(-4px);
+    }
+
+    .srv-card-num {
+      font-family: Georgia, serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 0.12em;
+      margin-bottom: 18px;
+    }
+
+    .srv-card-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      transition: color 0.2s;
+    }
+
+    .srv-card:hover .srv-card-icon { color: var(--red); }
+
+    .srv-card h3 {
+      font-size: 1.15rem;
+      color: var(--black);
+      margin-bottom: 10px;
+    }
+
+    .srv-card-desc {
+      font-size: 14px;
+      color: var(--grey-txt);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 24px;
+    }
+
+    .srv-card-arrow {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .srv-card:hover .srv-card-arrow { gap: 10px; }
+
+    /* ─── QUI SOM ──────────────────────────────── */
+    .about { padding: 96px 0; background: var(--charcoal); color: var(--white); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    @media (max-width: 820px) { .about-inner { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-img-wrap {
+      border-radius: 4px;
+      overflow: hidden;
+      height: 480px;
+      position: relative;
+    }
+
+    .about-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-img-badges {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,26,26,0.8) 0%, transparent 100%);
+      padding: 32px 24px 20px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .about-badge {
+      background: rgba(139,34,49,0.85);
+      color: var(--white);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 13px;
+      border-radius: 2px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .about-content .section-label { color: #e8a0ab; }
+    .about-content .section-title { color: var(--white); }
+
+    .about-content > p {
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 18px;
+      font-size: 16px;
+    }
+
+    .about-list { list-style: none; margin-top: 8px; }
+
+    .about-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+    }
+
+    .about-list li:last-child { border-bottom: none; }
+
+    .about-list-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ─── GALERIA ──────────────────────────────── */
+    .gallery { overflow: hidden; line-height: 0; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 320px;
+    }
+
+    .gallery-item { overflow: hidden; }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    @media (max-width: 600px) {
+      .gallery-grid { grid-template-columns: 1fr 1fr; height: 220px; }
+      .gallery-item:last-child { display: none; }
+    }
+
+    /* ─── PROCÉS ────────────────────────────────── */
+    .process { padding: 96px 0; background: var(--white); }
+
+    .process-head { text-align: center; margin-bottom: 64px; }
+    .process-head .section-sub { margin: 0 auto; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+    }
+
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: var(--grey-mid);
+    }
+
+    @media (max-width: 820px) {
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .process-steps::before { display: none; }
+    }
+
+    @media (max-width: 480px) { .process-steps { grid-template-columns: 1fr; } }
+
+    .process-step { text-align: center; padding: 0 20px; position: relative; z-index: 1; }
+
+    .process-num {
+      width: 56px;
+      height: 56px;
+      background: var(--white);
+      border: 2px solid var(--grey-mid);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--red);
+      margin: 0 auto 24px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+
+    .process-step:hover .process-num {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+
+    .process-step h4 { font-size: 1rem; margin-bottom: 8px; }
+    .process-step p { font-size: 13px; color: var(--grey-txt); line-height: 1.65; }
+
+    /* ─── RESSENYES ─────────────────────────────── */
+    .reviews { padding: 96px 0; background: var(--grey); }
+
+    .reviews-head { text-align: center; margin-bottom: 48px; }
+
+    .google-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1px solid var(--grey-mid);
+      border-radius: var(--radius);
+      padding: 10px 20px;
+      margin-top: 20px;
+    }
+
+    .google-logo { font-size: 18px; font-weight: 700; letter-spacing: -0.5px; }
+    .google-logo .g  { color: #4285F4; }
+    .google-logo .o1 { color: #EA4335; }
+    .google-logo .o2 { color: #FBBC05; }
+    .google-logo .g2 { color: #4285F4; }
+    .google-logo .l  { color: #34A853; }
+    .google-logo .e  { color: #EA4335; }
+
+    .stars { color: #FBBC05; font-size: 16px; letter-spacing: 2px; }
+
+    .rating-val { font-family: Georgia, serif; font-size: 1.2rem; font-weight: 700; }
+
+    .review-count { font-size: 13px; color: var(--grey-txt); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 820px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+    .review-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 1px solid var(--grey-mid);
+      transition: box-shadow 0.2s;
+    }
+
+    .review-card:hover { box-shadow: var(--shadow); }
+
+    .review-top { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+
+    .review-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Georgia, serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .review-name { font-weight: 700; font-size: 14px; }
+    .review-date { font-size: 12px; color: #999; }
+    .review-stars { color: #FBBC05; font-size: 13px; margin-top: 2px; }
+
+    .review-text {
+      font-size: 14px;
+      color: var(--grey-txt);
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .review-text::before { content: '\201C'; }
+    .review-text::after  { content: '\201D'; }
+
+    /* ─── CONTACTE ──────────────────────────────── */
+    .contact { padding: 96px 0; background: var(--white); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 72px;
+      align-items: start;
+    }
+
+    @media (max-width: 820px) { .contact-inner { grid-template-columns: 1fr; gap: 48px; } }
+
+    .contact-detail { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--red);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail strong { display: block; font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .contact-detail span { font-size: 15px; color: var(--grey-txt); }
+    .contact-detail a { color: var(--red); font-weight: 600; }
+
+    .contact-hours {
+      background: var(--grey);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      border-left: 3px solid var(--red);
+      margin-top: 8px;
+    }
+
+    .contact-hours strong { display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+    .contact-hours p { font-size: 14px; color: var(--grey-txt); margin: 0; line-height: 1.65; }
+
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--grey-mid);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-form h3 { font-size: 1.3rem; margin-bottom: 28px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--grey-mid);
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--black);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 3px rgba(139,34,49,0.1);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 110px; }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235c5c5c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 40px;
+    }
+
+    .form-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+    .form-check input { width: 15px; height: 15px; flex-shrink: 0; margin-top: 3px; accent-color: var(--red); cursor: pointer; }
+    .form-check label { font-size: 13px; color: var(--grey-txt); cursor: pointer; }
+    .form-check a { color: var(--red); text-decoration: underline; }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 15px;
+      border-radius: var(--radius);
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-submit:hover { background: var(--red-dark); transform: translateY(-2px); }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer { background: var(--charcoal); color: rgba(255,255,255,0.55); }
+
+    .footer-main {
+      padding: 64px 0 48px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.3fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 900px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .footer-main { grid-template-columns: 1fr; } }
+
+    .footer-brand-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+
+    .footer-brand-mark {
+      width: 34px;
+      height: 34px;
+      background: var(--red);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-brand-text {
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand-text span { color: #e8a0ab; }
+
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; }
+
+    .footer-col h4 {
+      font-family: Georgia, serif;
+      font-size: 12px;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+
+    .footer-col ul a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--white); }
+
+    .footer-col address { font-style: normal; font-size: 14px; line-height: 1.85; }
+    .footer-col address a { color: #e8a0ab; transition: color 0.2s; }
+    .footer-col address a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom a { color: rgba(255,255,255,0.4); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--white); }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════ NAV -->
+<nav aria-label="Navegació principal">
+  <div class="container nav-inner">
+    <a href="#" aria-label="Assessors Garrotxa – inici">
+      <picture>
+        <source srcset="img/logo.avif" type="image/avif" />
+        <img src="img/logo.png" alt="Assessors Garrotxa" class="nav-logo-img" />
+      </picture>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#serveis">Serveis</a></li>
+      <li><a href="#qui-som">Qui som</a></li>
+      <li><a href="contractes.html">Contractes</a></li>
+      <li><a href="#ressenyes">Ressenyes</a></li>
+      <li><a href="noticies.html">Notícies</a></li>
+      <li><a href="#contacte" class="nav-cta">Contactar</a></li>
+    </ul>
+    <button class="nav-burger" aria-label="Obrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════ HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-badge">&#10003;&nbsp; Gestoria col·legiada &middot; Olot, des de 1995</div>
+      <h1>La vostra empresa,<br><em>en bones mans</em><br>des del primer dia.</h1>
+      <p class="hero-sub">Assessoria fiscal, laboral, mercantil i comptable per a autònoms i empreses de la Garrotxa. Rigor, proximitat i tracte personal.</p>
+      <div class="hero-actions">
+        <a href="#contacte" class="btn-primary">Sol·licitar consulta gratuïta</a>
+        <a href="tel:972268260" class="btn-outline">&#128222;&nbsp; 972 26 82 60</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-value">+30</div>
+          <div class="hero-stat-label">Anys d'experiència</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">+500</div>
+          <div class="hero-stat-label">Clients actius</div>
+        </div>
+        <div>
+          <div class="hero-stat-value">4</div>
+          <div class="hero-stat-label">Àrees d'assessoria</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ SERVEIS -->
+<section class="services" id="serveis">
+  <div class="container">
+    <div class="services-head">
+      <span class="section-label">Els nostres serveis</span>
+      <h2 class="section-title">Tot el que la vostra empresa necessita</h2>
+      <p class="section-sub">Cobrim totes les àrees de gestió empresarial. Feu clic a cada servei per veure'n tots els detalls.</p>
+    </div>
+    <div class="srv-cards">
+
+      <a href="fiscal.html" class="srv-card">
+        <span class="srv-card-num">01</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <line x1="10" y1="9" x2="8" y2="9"/>
+          </svg>
+        </span>
+        <h3>Assessoria Fiscal</h3>
+        <p class="srv-card-desc">Optimitzem la vostra fiscalitat de forma legal i estratègica, complint tots els terminis amb rigor.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="laboral.html" class="srv-card">
+        <span class="srv-card-num">02</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </span>
+        <h3>Assessoria Laboral</h3>
+        <p class="srv-card-desc">Gestionem nòmines, contractes i relacions laborals amb total seguretat jurídica.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="mercantil.html" class="srv-card">
+        <span class="srv-card-num">03</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+            <line x1="12" y1="12" x2="12" y2="16"/>
+            <line x1="10" y1="14" x2="14" y2="14"/>
+          </svg>
+        </span>
+        <h3>Assessoria Mercantil</h3>
+        <p class="srv-card-desc">Constitució, modificació i gestió legal de societats i empreses amb plenes garanties.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="comptable.html" class="srv-card">
+        <span class="srv-card-num">04</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6"  y1="20" x2="6"  y2="14"/>
+            <line x1="2"  y1="20" x2="22" y2="20"/>
+          </svg>
+        </span>
+        <h3>Comptabilitat</h3>
+        <p class="srv-card-desc">Comptabilitat rigorosa i informes financers clars per tenir sempre el control del vostre negoci.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ QUI SOM -->
+<section class="about" id="qui-som">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img src="img/recepcio.jpeg" alt="Recepció d'Assessors Garrotxa a Olot" loading="lazy" />
+        <div class="about-img-badges">
+          <span class="about-badge">Col·legiats</span>
+          <span class="about-badge">Olot, des de 1995</span>
+          <span class="about-badge">+30 anys</span>
+        </div>
+      </div>
+      <div class="about-content">
+        <span class="section-label">Qui som</span>
+        <h2 class="section-title">Una gestoria arrelada a la Garrotxa</h2>
+        <p>Assessors Garrotxa va néixer el 1995 a Olot amb una missió clara: oferir un servei professional, proper i de confiança a les empreses i autònoms de la comarca.</p>
+        <p>Tres dècades d'experiència ens han ensenyat que cada client és únic. Per això treballem amb dedicació personalitzada, entenent la realitat de cada negoci i aportant solucions a mida.</p>
+        <ul class="about-list">
+          <li><span class="about-list-dot"></span><span>Equip pluridisciplinari: fiscal, laboral, mercantil i comptable.</span></li>
+          <li><span class="about-list-dot"></span><span>Formació contínua i actualització normativa permanent.</span></li>
+          <li><span class="about-list-dot"></span><span>Gestió digital amb accés online als vostres documents les 24h.</span></li>
+          <li><span class="about-list-dot"></span><span>Atenció en català, castellà i anglès.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ GALERIA -->
+<section class="gallery" aria-label="Instal·lacions">
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="img/atri.jpeg" alt="Atri interior" loading="lazy" /></div>
+    <div class="gallery-item"><img src="img/finestra.jpeg" alt="Zona d'espera" loading="lazy" /></div>
+    <div class="gallery-item"><img src="img/sala-reunions.jpeg" alt="Sala de reunions" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ PROCÉS -->
+<section class="process" id="proces">
+  <div class="container">
+    <div class="process-head">
+      <span class="section-label">Com treballem</span>
+      <h2 class="section-title">El nostre procés, pas a pas</h2>
+      <p class="section-sub">Un acompanyament transparent des del primer contacte fins a la gestió continuada del vostre negoci.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-num">1</div>
+        <h4>Primera consulta</h4>
+        <p>Escolta activa de la vostra situació, sense compromís ni cost.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">2</div>
+        <h4>Diagnosi i proposta</h4>
+        <p>Analitzem la necessitat i us presentem una proposta clara i detallada.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">3</div>
+        <h4>Posada en marxa</h4>
+        <p>Gestionem tots els tràmits i us informem en cada fase del procés.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">4</div>
+        <h4>Seguiment continu</h4>
+        <p>Us acompanyem de forma proactiva per anticipar canvis i oportunitats.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ RESSENYES -->
+<section class="reviews" id="ressenyes">
+  <div class="container">
+    <div class="reviews-head">
+      <span class="section-label">Ressenyes</span>
+      <h2 class="section-title">El que diuen els nostres clients</h2>
+      <div class="google-badge">
+        <span class="google-logo"><span class="g">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span></span>
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="rating-val">5,0</span>
+        <span class="review-count">(47 ressenyes)</span>
+      </div>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar">M</div>
+          <div>
+            <div class="review-name">Marta Puigdomènech</div>
+            <div class="review-date">Fa 2 mesos</div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+        </div>
+        <p class="review-text">Porto els comptes del meu restaurant amb Assessors Garrotxa des de fa 8 anys. Sempre disponibles, resolents i amb un tracte excel·lent. No canviaria per res del món.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#7a3020;">J</div>
+          <div>
+            <div class="review-name">Jordi Mas Barnadas</div>
+            <div class="review-date">Fa 4 mesos</div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+        </div>
+        <p class="review-text">Em van ajudar a constituir la meva SL de manera ràpida i sense complicacions. Molt professionals i s'expliquen molt bé. Recomanable al 100%.</p>
+      </div>
+
+      <div class="review-card">
+        <div class="review-top">
+          <div class="review-avatar" style="background:#5a3535;">S</div>
+          <div>
+            <div class="review-name">Sílvia Torrent</div>
+            <div class="review-date">Fa 1 mes</div>
+            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          </div>
+        </div>
+        <p class="review-text">Vaig tenir un problema amb Hisenda i van gestionar-ho amb molta eficàcia. Gràcies a ells vaig sortir amb un resultat molt millor del que esperava.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ CONTACTE -->
+<section class="contact" id="contacte">
+  <div class="container">
+    <div class="contact-inner">
+      <div>
+        <span class="section-label">Contacte</span>
+        <h2 class="section-title">Parlem sense compromís</h2>
+        <p style="color:var(--grey-txt);margin-bottom:36px;font-size:16px;">Primera consulta gratuïta. Expliqueu-nos la vostra situació i us orientarem sobre la millor solució.</p>
+
+        <div class="contact-detail">
+          <div class="contact-icon">&#128222;</div>
+          <div>
+            <strong>Telèfon</strong>
+            <span><a href="tel:972268260">972 26 82 60</a>&nbsp;&middot;&nbsp;<a href="tel:638387547">638 387 547</a></span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">&#128242;</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <span><a href="https://wa.me/34638387547">638 38 75 47</a></span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">&#128205;</div>
+          <div>
+            <strong>Adreça</strong>
+            <span>Passeig de Barcelona, 2<br>(Entrada per Plaça Catalunya)<br>17800 Olot (Girona)</span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">&#9993;</div>
+          <div>
+            <strong>Correu electrònic</strong>
+            <span><a href="mailto:info@assessorsgarrotxa.com">info@assessorsgarrotxa.com</a></span>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-icon">&#128224;</div>
+          <div>
+            <strong>Fax</strong>
+            <span>972 26 69 39</span>
+          </div>
+        </div>
+
+        <div class="contact-hours">
+          <strong>Horari d'atenció</strong>
+          <p>Dilluns a dijous: 9:00 – 13:00 h · 16:00 – 19:00 h<br>Divendres: 9:00 – 15:00 h<br>Dissabtes i diumenges: tancat</p>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Envieu-nos un missatge</h3>
+        <form action="https://formsubmit.co/jboix14@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="Nova consulta des de la web – Assessors Garrotxa" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://assessorsgarrotxa.com" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nom">Nom *</label>
+              <input type="text" id="nom" name="nom" placeholder="El vostre nom" required />
+            </div>
+            <div class="form-group">
+              <label for="cognom">Cognoms *</label>
+              <input type="text" id="cognom" name="cognom" placeholder="Els vostres cognoms" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Correu electrònic *</label>
+              <input type="email" id="email" name="email" placeholder="correu@exemple.com" required />
+            </div>
+            <div class="form-group">
+              <label for="tel">Telèfon</label>
+              <input type="tel" id="tel" name="tel" placeholder="6XX XXX XXX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="servei">Àrea d'interès</label>
+            <select id="servei" name="servei">
+              <option value="">Seleccioneu un servei...</option>
+              <option value="fiscal">Assessoria Fiscal</option>
+              <option value="laboral">Assessoria Laboral</option>
+              <option value="mercantil">Assessoria Mercantil</option>
+              <option value="comptable">Comptabilitat</option>
+              <option value="altres">Altres consultes</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="missatge">Missatge *</label>
+            <textarea id="missatge" name="missatge" placeholder="Expliqueu-nos breument la vostra consulta..." required></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="privacitat" name="privacitat" required />
+            <label for="privacitat">He llegit i accepto la <a href="#">política de privacitat</a> i el tractament de les meves dades personals.</label>
+          </div>
+          <button type="submit" class="btn-submit">Enviar missatge</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-brand">
+                <picture style="display:block;margin-bottom:16px">
+          <source srcset="img/logo.avif" type="image/avif" />
+          <img src="img/logo.png" alt="Assessors Garrotxa" style="height:48px;width:auto;filter:brightness(0) invert(1);opacity:.85" />
+        </picture>
+        <p>Gestoria i assessoria integral per a autònoms i empreses de la Garrotxa des de 1995. Rigor, confiança i tracte personal.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Serveis</h4>
+        <ul>
+          <li><a href="fiscal.html">Assessoria Fiscal</a></li>
+          <li><a href="laboral.html">Assessoria Laboral</a></li>
+          <li><a href="mercantil.html">Assessoria Mercantil</a></li>
+          <li><a href="comptable.html">Comptabilitat</a></li>
+          <li><a href="contractes.html">Contractes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#qui-som">Qui som</a></li>
+          <li><a href="#proces">Com treballem</a></li>
+          <li><a href="#ressenyes">Ressenyes</a></li>
+          <li><a href="#contacte">Contacte</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacte</h4>
+        <address>
+          Passeig de Barcelona, 2<br>
+          (Entrada per Plaça Catalunya)<br>
+          17800 Olot (Girona)<br><br>
+          <a href="tel:972268260">972 26 82 60</a><br>
+          <a href="tel:638387547">638 387 547</a><br>
+          <a href="https://wa.me/34638387547">WhatsApp: 638 38 75 47</a><br>
+          <a href="mailto:info@assessorsgarrotxa.com">info@assessorsgarrotxa.com</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2025 Assessors Garrotxa S.L. &middot; Tots els drets reservats.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Avís legal</a>
+        <a href="#">Política de privacitat</a>
+        <a href="#">Cookies</a>
+        <a href="noticies.html?a=1" style="font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.05em;" onmouseover="this.style.color='rgba(255,255,255,.4)'" onmouseout="this.style.color='rgba(255,255,255,.12)'">admin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
