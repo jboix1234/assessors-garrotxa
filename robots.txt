@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://assessors-garrotxa.vercel.app/sitemap.xml
