@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 50" role="img" aria-label="Assessors Garrotxa">
+  <defs>
+    <!-- A shape: angled mountain, right edge vertical -->
+    <clipPath id="ag-a">
+      <polygon points="2,48 17,2 28,2 28,48"/>
+    </clipPath>
+    <!-- G shape: thick C-arc opening to the left -->
+    <clipPath id="ag-g">
+      <path d="M24,2 C40,2 56,13 56,25 C56,37 42,48 24,48 L24,39 C38,39 47,33 47,25 C47,17 39,11 24,11 Z"/>
+    </clipPath>
+    <!-- Red gradient for A (dark top, red at base) -->
+    <linearGradient id="grad-a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#363a35"/>
+      <stop offset="60%" stop-color="#363a35"/>
+      <stop offset="100%" stop-color="#8b2231"/>
+    </linearGradient>
+  </defs>
+
+  <!-- A fill + stripes -->
+  <g clip-path="url(#ag-a)">
+    <rect width="58" height="50" fill="url(#grad-a)"/>
+    <rect x="0" y="10"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="19"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="28"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="37"  width="58" height="2.8" fill="white"/>
+  </g>
+
+  <!-- G fill + stripes -->
+  <g clip-path="url(#ag-g)">
+    <rect width="58" height="50" fill="#6c6c6c"/>
+    <rect x="0" y="10"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="19"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="28"  width="58" height="2.8" fill="white"/>
+    <rect x="0" y="37"  width="58" height="2.8" fill="white"/>
+  </g>
+</svg>
