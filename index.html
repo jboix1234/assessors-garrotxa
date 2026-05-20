@@ -461,12 +461,13 @@
     }
 
     /* ─── CREDENCIALS ───────────────────────────── */
-    .credentials { background: var(--white); border-top: 1px solid var(--grey-mid); border-bottom: 1px solid var(--grey-mid); padding: 32px 0; }
-    .credentials-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
-    .cred-item { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--grey-txt); font-weight: 500; }
-    .cred-item svg { flex-shrink: 0; opacity: .6; }
-    .cred-divider { width: 1px; height: 32px; background: var(--grey-mid); }
-    @media(max-width:600px){ .cred-divider { display: none; } .credentials-inner { gap: 20px; } }
+    .credentials { background: var(--white); border-top: 1px solid var(--grey-mid); border-bottom: 1px solid var(--grey-mid); padding: 28px 0; }
+    .credentials-inner { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; }
+    .cred-item { display: flex; align-items: center; justify-content: center; height: 44px; opacity: .7; transition: opacity .2s; }
+    .cred-item:hover { opacity: 1; }
+    .cred-item img { max-height: 44px; max-width: 130px; width: auto; object-fit: contain; filter: grayscale(20%); }
+    .cred-divider { width: 1px; height: 36px; background: var(--grey-mid); flex-shrink: 0; }
+    @media(max-width:700px){ .cred-divider { display: none; } .credentials-inner { gap: 24px; } }
 
     /* ─── PROCÉS ────────────────────────────────── */
     .process { padding: 96px 0; background: var(--white); }
@@ -1162,18 +1163,27 @@
   <div class="container">
     <div class="credentials-inner">
       <div class="cred-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        Col·legi Oficial de Titulats Mercantils i Empresarials de Girona
+        <img src="img/logo-gestors.png" alt="Col·legi de Gestors Administratius de Catalunya" />
       </div>
       <div class="cred-divider"></div>
       <div class="cred-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-        AECE – Experts Comptables i Assessors
+        <img src="img/logo-api.jpg" alt="API – Associació Professional Immobiliària" />
       </div>
       <div class="cred-divider"></div>
       <div class="cred-item">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="22" height="22"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Assessoria des de 1995
+        <img src="img/logo-economistes.png" alt="Col·legi d'Economistes de Catalunya" />
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <img src="img/logo-dgt.svg" alt="Direcció General de Trànsit" />
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <img src="img/logo-generalitat.png" alt="Generalitat de Catalunya" />
+      </div>
+      <div class="cred-divider"></div>
+      <div class="cred-item">
+        <img src="img/logo-feader.webp" alt="Unió Europea – FEADER" />
       </div>
     </div>
   </div>
@@ -1482,32 +1492,6 @@
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════ TRUST STRIP -->
-<section class="trust-strip">
-  <div class="container">
-    <p class="trust-strip-label">Col·laboradors i institucions de confiança</p>
-    <div class="trust-logos">
-      <div class="trust-logo-item">
-        <img src="img/logo-gestors.png" alt="Col·legi de Gestors Administratius de Catalunya" />
-      </div>
-      <div class="trust-logo-item">
-        <img src="img/logo-api.jpg" alt="API – Associació Professional Immobiliària" />
-      </div>
-      <div class="trust-logo-item">
-        <img src="img/logo-economistes.png" alt="Col·legi d'Economistes de Catalunya" />
-      </div>
-      <div class="trust-logo-item">
-        <img src="img/logo-dgt.svg" alt="Direcció General de Trànsit (DGT)" />
-      </div>
-      <div class="trust-logo-item">
-        <img src="img/logo-generalitat.png" alt="Generalitat de Catalunya" />
-      </div>
-      <div class="trust-logo-item">
-        <img src="img/logo-feader.webp" alt="Fons Europeu Agrícola de Desenvolupament Rural – Projecte PDR" />
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════ PDR STRIP -->
 <div class="pdr-strip">
