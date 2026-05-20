@@ -261,11 +261,12 @@
 
     .srv-cards {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 20px;
     }
 
-    @media (max-width: 860px) { .srv-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 1100px) { .srv-cards { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px) { .srv-cards { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 480px) { .srv-cards { grid-template-columns: 1fr; } }
 
     .srv-card {
@@ -996,6 +997,73 @@
         </span>
         <h3>Trànsit (DGT)</h3>
         <p class="srv-card-desc">Transferències de vehicles, permisos de conducció, baixes i tots els tràmits amb la DGT sense cues.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="autonoms.html" class="srv-card">
+        <span class="srv-card-num">06</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </span>
+        <h3>Autònoms</h3>
+        <p class="srv-card-desc">Alta RETA, IVA i IRPF trimestrals, declaració de la renda i assessorament continu per al teu negoci.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="empreses.html" class="srv-card">
+        <span class="srv-card-num">07</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </span>
+        <h3>Empreses</h3>
+        <p class="srv-card-desc">Constitució, Impost de Societats, comptes anuals i gestió integral per a la vostra empresa.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="herencies.html" class="srv-card">
+        <span class="srv-card-num">08</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="9" y1="13" x2="15" y2="13"/>
+          </svg>
+        </span>
+        <h3>Herències</h3>
+        <p class="srv-card-desc">Impost de successions, inventari de béns, partició i tots els tràmits relacionats amb una herència.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="subvencions.html" class="srv-card">
+        <span class="srv-card-num">09</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="16"/>
+            <line x1="8" y1="12" x2="16" y2="12"/>
+          </svg>
+        </span>
+        <h3>Subvencions</h3>
+        <p class="srv-card-desc">PDR, Kit Digital, ajuts ACCIÓ i subvencions locals. Us ajudem a trobar-los i sol·licitar-los.</p>
+        <span class="srv-card-arrow">Saber més &rarr;</span>
+      </a>
+
+      <a href="tramits.html" class="srv-card">
+        <span class="srv-card-num">10</span>
+        <span class="srv-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="44" height="44">
+            <polyline points="9 11 12 14 22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </span>
+        <h3>Tràmits</h3>
+        <p class="srv-card-desc">NIE, llicències, certificats, registres i qualsevol tràmit administratiu per a particulars i empreses.</p>
         <span class="srv-card-arrow">Saber més &rarr;</span>
       </a>
 
