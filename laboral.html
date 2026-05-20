@@ -86,19 +86,41 @@
     .footer-bottom-links{display:flex;gap:20px}
     .footer-bottom a{color:rgba(255,255,255,.4);transition:color .2s}
     .footer-bottom a:hover{color:var(--white)}
+  
+    /* ─── BARRA D'IDIOMA ───────────────────────── */
+    .lang-bar{background:#23271f;border-bottom:1px solid rgba(255,255,255,.06);padding:5px 0}
+    .lang-inner{display:flex;justify-content:flex-end;align-items:center;gap:10px}
+    .lang-label{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:.05em;text-transform:uppercase}
+    .lang-btns{display:flex;gap:2px}
+    .lang-btn{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);font-size:10px;font-weight:700;letter-spacing:.07em;padding:2px 9px;border-radius:2px;cursor:pointer;font-family:inherit;transition:all .15s}
+    .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
+    .lang-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
   </style>
 </head>
 <body>
+<div class="lang-bar">
+  <div class="container">
+    <div class="lang-inner">
+      <span class="lang-label">Idioma</span>
+      <div class="lang-btns">
+        <button class="lang-btn" data-lang="ca">CA</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <nav>
   <div class="container nav-inner">
     <a href="index.html"><picture><source srcset="img/logo.avif" type="image/avif" /><img src="img/logo.png" alt="Assessors Garrotxa" class="nav-logo-img" /></picture></a>
     <ul class="nav-links">
-      <li><a href="index.html#serveis" class="active">Serveis</a></li>
-      <li><a href="index.html#qui-som">Qui som</a></li>
-      <li><a href="contractes.html">Contractes</a></li>
-      <li><a href="index.html#ressenyes">Ressenyes</a></li>
-      <li><a href="noticies.html">Notícies</a></li>
-      <li><a href="index.html#contacte" class="nav-cta">Contactar</a></li>
+      <li><a href="index.html#serveis" class="active" data-i18n="n.srv">Serveis</a></li>
+      <li><a href="index.html#qui-som" data-i18n="n.qs">Qui som</a></li>
+      <li><a href="contractes.html" data-i18n="n.ctr">Contractes</a></li>
+      <li><a href="index.html#ressenyes" data-i18n="n.res">Ressenyes</a></li>
+      <li><a href="noticies.html" data-i18n="n.not">Notícies</a></li>
+      <li><a href="index.html#contacte" class="nav-cta" data-i18n="n.con">Contactar</a></li>
     </ul>
     <button class="nav-burger"><span></span><span></span><span></span></button>
   </div>
@@ -230,6 +252,48 @@
   </div>
 </footer>
 <script>document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!open)item.classList.add('open');});});</script>
+<script>
+(function(){
+  var TRANS=window.PAGE_TRANS||{};
+  var NAV={
+    ca:{'n.srv':'Serveis','n.qs':'Qui som','n.ctr':'Contractes','n.res':'Ressenyes','n.not':'Notícies','n.con':'Contactar'},
+    es:{'n.srv':'Servicios','n.qs':'Quiénes somos','n.ctr':'Contratos','n.res':'Reseñas','n.not':'Noticias','n.con':'Contactar'},
+    en:{'n.srv':'Services','n.qs':'About us','n.ctr':'Contracts','n.res':'Reviews','n.not':'News','n.con':'Contact'}
+  };
+  function merge(a,b){var r={};Object.assign(r,a);Object.assign(r,b);return r;}
+  function applyLang(lang){
+    var t=merge(NAV[lang]||NAV.ca, TRANS[lang]||{});
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(t[el.dataset.i18n]!==undefined) el.textContent=t[el.dataset.i18n];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      if(t[el.dataset.i18nPh]!==undefined) el.placeholder=t[el.dataset.i18nPh];
+    });
+    document.querySelectorAll('[data-i18n-opt]').forEach(function(el){
+      if(t[el.dataset.i18nOpt]!==undefined) el.textContent=t[el.dataset.i18nOpt];
+    });
+    var sel=(window.PAGE_SEL||{})[lang]||{};
+    Object.keys(sel).forEach(function(s){
+      var vals=sel[s];
+      document.querySelectorAll(s).forEach(function(el,i){
+        var v=Array.isArray(vals)?vals[i]:vals;
+        if(v!=null) el.textContent=v;
+      });
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.lang===lang);
+    });
+    localStorage.setItem('ag_lang',lang);
+    document.documentElement.lang=lang==='ca'?'ca':lang==='es'?'es':'en';
+  }
+  document.querySelectorAll('.lang-btn').forEach(function(b){
+    b.addEventListener('click',function(){applyLang(b.dataset.lang);});
+  });
+  var saved=localStorage.getItem('ag_lang')||'ca';
+  applyLang(saved);
+})();
+</script>
+
 <script>
 (function(){
   var burger=document.querySelector('.nav-burger');
