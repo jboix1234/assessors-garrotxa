@@ -439,6 +439,27 @@
       .gallery-item:last-child { display: none; }
     }
 
+    /* ─── COMARCA ──────────────────────────────── */
+    .comarca { background: var(--white); padding: 88px 0; }
+    .comarca-head { text-align: center; margin-bottom: 48px; }
+    .comarca-head .section-sub { margin: 0 auto; }
+    .comarca-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) { .comarca-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .comarca-grid { grid-template-columns: 1fr; } }
+    .comarca-item { position: relative; border-radius: 8px; overflow: hidden; height: 300px; }
+    .comarca-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .comarca-item:hover img { transform: scale(1.06); }
+    .comarca-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(26,26,26,.75) 0%, transparent 100%);
+      color: var(--white); font-size: 12px; font-weight: 600;
+      letter-spacing: .05em; padding: 28px 16px 14px;
+    }
+
     /* ─── CREDENCIALS ───────────────────────────── */
     .credentials { background: var(--white); border-top: 1px solid var(--grey-mid); border-bottom: 1px solid var(--grey-mid); padding: 32px 0; }
     .credentials-inner { display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap; }
@@ -1104,6 +1125,35 @@
     <div class="gallery-item"><img src="img/atri.jpeg" alt="Atri interior" loading="lazy" /></div>
     <div class="gallery-item"><img src="img/finestra.jpeg" alt="Zona d'espera" loading="lazy" /></div>
     <div class="gallery-item"><img src="img/sala-reunions.jpeg" alt="Sala de reunions" loading="lazy" /></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════ COMARCA -->
+<section class="comarca">
+  <div class="container">
+    <div class="comarca-head">
+      <span class="section-label">El nostre territori</span>
+      <h2 class="section-title">Arrelats a la Garrotxa</h2>
+      <p class="section-sub">Trenta anys assessorant autònoms i empreses d'Olot i comarca. Coneixem el territori, la gent i les seves necessitats.</p>
+    </div>
+    <div class="comarca-grid">
+      <div class="comarca-item">
+        <img src="https://images.unsplash.com/photo-1722603960143-a7f01b107031?w=700&q=80&auto=format&fit=crop" alt="Vista d'Olot des del volcà Montsacopa" loading="lazy" />
+        <div class="comarca-caption">Olot des del volcà Montsacopa</div>
+      </div>
+      <div class="comarca-item">
+        <img src="https://images.unsplash.com/photo-1651574087390-b305612980dd?w=700&q=80&auto=format&fit=crop" alt="Castellfollit de la Roca, la Garrotxa" loading="lazy" />
+        <div class="comarca-caption">Castellfollit de la Roca</div>
+      </div>
+      <div class="comarca-item">
+        <img src="https://images.unsplash.com/photo-1763050827246-3a6e580f0984?w=700&q=80&auto=format&fit=crop" alt="Globus aerostàtic sobre la Garrotxa" loading="lazy" />
+        <div class="comarca-caption">La Garrotxa des dels cels</div>
+      </div>
+      <div class="comarca-item">
+        <img src="https://images.unsplash.com/photo-1732715510936-ee1986e7fadf?w=700&q=80&auto=format&fit=crop" alt="Boscos verds de la comarca de la Garrotxa" loading="lazy" />
+        <div class="comarca-caption">Els boscos de la comarca</div>
+      </div>
+    </div>
   </div>
 </section>
 
