@@ -967,7 +967,6 @@
       <li><a href="#serveis" data-i18n="n.srv">Serveis</a></li>
       <li><a href="#qui-som" data-i18n="n.qs">Qui som</a></li>
       <li><a href="contractes.html" data-i18n="n.ctr">Contractes</a></li>
-      <li><a href="#ressenyes" data-i18n="n.res">Ressenyes</a></li>
       <li><a href="noticies.html" data-i18n="n.not">Notícies</a></li>
       <li><a href="#contacte" class="nav-cta" data-i18n="n.con">Contactar</a></li>
     </ul>
@@ -1292,60 +1291,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════ RESSENYES -->
-<section class="reviews" id="ressenyes">
-  <div class="container">
-    <div class="reviews-head">
-      <span class="section-label">Ressenyes</span>
-      <h2 class="section-title">El que diuen els nostres clients</h2>
-      <div class="google-badge">
-        <span class="google-logo"><span class="g">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span></span>
-        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span class="rating-val">5,0</span>
-        <span class="review-count">(47 ressenyes)</span>
-      </div>
-    </div>
-    <div class="reviews-grid">
-
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar">M</div>
-          <div>
-            <div class="review-name">Marta Puigdomènech</div>
-            <div class="review-date">Fa 2 mesos</div>
-            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          </div>
-        </div>
-        <p class="review-text">Porto els comptes del meu restaurant amb Assessors Garrotxa des de fa 8 anys. Sempre disponibles, resolents i amb un tracte excel·lent. No canviaria per res del món.</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar" style="background:#7a3020;">J</div>
-          <div>
-            <div class="review-name">Jordi Mas Barnadas</div>
-            <div class="review-date">Fa 4 mesos</div>
-            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          </div>
-        </div>
-        <p class="review-text">Em van ajudar a constituir la meva SL de manera ràpida i sense complicacions. Molt professionals i s'expliquen molt bé. Recomanable al 100%.</p>
-      </div>
-
-      <div class="review-card">
-        <div class="review-top">
-          <div class="review-avatar" style="background:#5a3535;">S</div>
-          <div>
-            <div class="review-name">Sílvia Torrent</div>
-            <div class="review-date">Fa 1 mes</div>
-            <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-          </div>
-        </div>
-        <p class="review-text">Vaig tenir un problema amb Hisenda i van gestionar-ho amb molta eficàcia. Gràcies a ells vaig sortir amb un resultat molt millor del que esperava.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
 
 <!-- ══════════════════════════════════════════ CONTACTE -->
 <section class="contact" id="contacte">
@@ -1532,7 +1477,7 @@
         <ul>
           <li><a href="#qui-som">Qui som</a></li>
           <li><a href="#proces">Com treballem</a></li>
-          <li><a href="#ressenyes">Ressenyes</a></li>
+
           <li><a href="#contacte">Contacte</a></li>
         </ul>
       </div>
@@ -1660,8 +1605,6 @@ window.PAGE_SEL = {
     '.process .section-sub':   'Un acompañamiento transparente desde el primer contacto hasta la gestión continuada de su negocio.',
     '.process-step h4':   ['Primera consulta','Diagnóstico y propuesta','Puesta en marcha','Seguimiento continuo'],
     '.process-step p':    ['Escucha activa de su situación, sin compromiso ni coste.','Analizamos la necesidad y le presentamos una propuesta clara y detallada.','Gestionamos todos los trámites e informamos en cada fase del proceso.','Le acompañamos de forma proactiva para anticipar cambios y oportunidades.'],
-    '.reviews .section-label': 'Reseñas',
-    '.reviews .section-title': 'Lo que dicen nuestros clientes',
     '.contact-head .section-label': 'Contacto',
     '.contact-head .section-title': 'Hablemos sin compromiso',
     '.contact-head .section-sub':   'Primera consulta gratuita. Cuéntenos su situación y le orientaremos sobre la mejor solución.',
@@ -1691,8 +1634,6 @@ window.PAGE_SEL = {
     '.process .section-sub':   'Transparent support from the first contact through to the ongoing management of your business.',
     '.process-step h4':   ['Initial consultation','Diagnosis & proposal','Getting started','Ongoing support'],
     '.process-step p':    ['Active listening to your situation, with no commitment or cost.','We analyse your needs and present a clear, detailed proposal.','We handle all procedures and keep you informed at every stage.','We support you proactively to anticipate changes and opportunities.'],
-    '.reviews .section-label': 'Reviews',
-    '.reviews .section-title': 'What our clients say',
     '.contact-head .section-label': 'Contact',
     '.contact-head .section-title': 'Let\'s talk, no commitment',
     '.contact-head .section-sub':   'Free initial consultation. Tell us about your situation and we will guide you to the best solution.',
@@ -1709,9 +1650,9 @@ window.PAGE_SEL = {
 (function(){
   var TRANS=window.PAGE_TRANS||{};
   var NAV={
-    ca:{'n.srv':'Serveis','n.qs':'Qui som','n.ctr':'Contractes','n.res':'Ressenyes','n.not':'Notícies','n.con':'Contactar'},
-    es:{'n.srv':'Servicios','n.qs':'Quiénes somos','n.ctr':'Contratos','n.res':'Reseñas','n.not':'Noticias','n.con':'Contactar'},
-    en:{'n.srv':'Services','n.qs':'About us','n.ctr':'Contracts','n.res':'Reviews','n.not':'News','n.con':'Contact'}
+    ca:{'n.srv':'Serveis','n.qs':'Qui som','n.ctr':'Contractes','n.not':'Notícies','n.con':'Contactar'},
+    es:{'n.srv':'Servicios','n.qs':'Quiénes somos','n.ctr':'Contratos','n.not':'Noticias','n.con':'Contactar'},
+    en:{'n.srv':'Services','n.qs':'About us','n.ctr':'Contracts','n.not':'News','n.con':'Contact'}
   };
   function merge(a,b){var r={};Object.assign(r,a);Object.assign(r,b);return r;}
   function applyLang(lang){
