@@ -867,9 +867,79 @@
     .lang-btn{background:none;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.4);font-size:10px;font-weight:700;letter-spacing:.07em;padding:2px 9px;border-radius:2px;cursor:pointer;font-family:inherit;transition:all .15s}
     .lang-btn:hover{color:var(--white);border-color:rgba(255,255,255,.4)}
     .lang-btn.active{background:var(--red);border-color:var(--red);color:var(--white)}
+  /* ─── INTRO SPLASH ────────────────────────── */
+  #intro-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--charcoal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    pointer-events: none;
+    animation: splashOut 0.7s ease-in-out 2s forwards;
+  }
+
+  #intro-splash .splash-logo {
+    animation: splashLogoIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+  }
+
+  #intro-splash .splash-logo img {
+    height: 90px;
+    width: auto;
+    display: block;
+    filter: brightness(1.05);
+  }
+
+  #intro-splash .splash-line {
+    width: 48px;
+    height: 2px;
+    background: var(--red);
+    animation: splashLineIn 0.5s ease 0.9s both;
+  }
+
+  #intro-splash .splash-tagline {
+    font-family: Georgia, serif;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    animation: splashLogoIn 0.6s ease 1.1s both;
+  }
+
+  @keyframes splashLogoIn {
+    from { opacity: 0; transform: translateY(18px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes splashLineIn {
+    from { opacity: 0; transform: scaleX(0); }
+    to   { opacity: 1; transform: scaleX(1); }
+  }
+
+  @keyframes splashOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-12px); visibility: hidden; }
+  }
+
+  body.splash-active { overflow: hidden; }
+
   </style>
 </head>
-<body>
+<body class="splash-active">
+
+<div id="intro-splash">
+  <div class="splash-logo">
+    <picture>
+      <source srcset="img/logo.avif" type="image/avif" />
+      <img src="img/logo.png" alt="Assessors Garrotxa" />
+    </picture>
+  </div>
+  <div class="splash-line"></div>
+  <span class="splash-tagline">Assessoria · Olot · des de 1995</span>
+</div>
 
 <div class="lang-bar">
   <div class="container">
@@ -1556,6 +1626,18 @@
       errEl.style.display = 'block';
     }
   });
+</script>
+<script>
+  (function() {
+    const splash = document.getElementById('intro-splash');
+    if (!splash) return;
+    splash.addEventListener('animationend', function(e) {
+      if (e.animationName === 'splashOut') {
+        splash.remove();
+        document.body.classList.remove('splash-active');
+      }
+    });
+  })();
 </script>
 <script>
 window.PAGE_SEL = {
