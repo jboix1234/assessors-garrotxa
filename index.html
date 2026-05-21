@@ -1587,63 +1587,103 @@
 <script>
 window.PAGE_SEL = {
   es: {
-    '.hero-badge':        '✓ Assessoria · Olot, desde 1995',
+    '.hero-badge':        '✓ Gestoria · Olot, desde 1995',
     '.hero-sub':          'Asesoría fiscal, laboral, mercantil y contable para autónomos y empresas de la Garrotxa. Rigor, proximidad y trato personal.',
     '.btn-primary':       'Solicitar consulta gratuita',
     '.hero-stat-label':   ['Años de experiencia','Clientes activos','Áreas de asesoría'],
+    /* Serveis */
     '.services .section-label':  'Nuestros servicios',
     '.services .section-title':  'Todo lo que su empresa necesita',
     '.services .section-sub':    'Cubrimos todas las áreas de gestión empresarial. Haga clic en cada servicio para ver todos los detalles.',
-    '.srv-card h3':       ['Asesoría Fiscal','Asesoría Laboral','Asesoría Mercantil','Contabilidad'],
-    '.srv-card-desc':     ['Optimizamos su fiscalidad de forma legal y estratégica, cumpliendo todos los plazos con rigor.','Gestionamos nóminas, contratos y relaciones laborales con total seguridad jurídica.','Constitución, modificación y gestión legal de sociedades y empresas con plenas garantías.','Contabilidad rigurosa e informes financieros claros para tener siempre el control de su negocio.'],
-    '.srv-card-arrow':    ['Saber más →','Saber más →','Saber más →','Saber más →'],
+    '.srv-card h3':       ['Asesoría Fiscal','Asesoría Laboral','Asesoría Mercantil','Contabilidad','Tráfico (DGT)','Autónomos','Empresas','Herencias','Subvenciones','Trámites'],
+    '.srv-card-desc':     ['Optimizamos su fiscalidad de forma legal y estratégica, cumpliendo todos los plazos con rigor.','Gestionamos nóminas, contratos y relaciones laborales con total seguridad jurídica.','Constitución, modificación y gestión legal de sociedades y empresas con plenas garantías.','Contabilidad rigurosa e informes financieros claros para tener siempre el control de su negocio.','Transferencias de vehículos, permisos de conducir, bajas y todos los trámites con la DGT sin colas.','Alta RETA, IVA e IRPF trimestrales, declaración de la renta y asesoramiento continuo para su negocio.','Constitución, Impuesto de Sociedades, cuentas anuales y gestión integral para su empresa.','Impuesto de sucesiones, inventario de bienes, partición y todos los trámites de una herencia.','PDR, Kit Digital, ayudas ACCIÓ y subvenciones locales. Le ayudamos a encontrarlas y solicitarlas.','NIE, licencias, certificados, registros y cualquier trámite administrativo para particulares y empresas.'],
+    '.srv-card-arrow':    ['Saber más →','Saber más →','Saber más →','Saber más →','Saber más →','Saber más →','Saber más →','Saber más →','Saber más →','Saber más →'],
+    /* Qui som */
     '.about .section-label':  'Quiénes somos',
-    '.about .section-title':  'Una assessoria arraigada en la Garrotxa',
+    '.about .section-title':  'Una gestoría arraigada en la Garrotxa',
     '.about-badge':       ['Colegiados','Olot, desde 1995','+30 años'],
+    '.about-content > p': ['Assessors Garrotxa nació en 1995 en Olot con una misión clara: ofrecer un servicio profesional, cercano y de confianza a las empresas y autónomos de la comarca.','Tres décadas de experiencia nos han enseñado que cada cliente es único. Por eso trabajamos con dedicación personalizada, entendiendo la realidad de cada negocio y aportando soluciones a medida.'],
+    '.about-list li span:last-child': ['Equipo pluridisciplinar: fiscal, laboral, mercantil y contable.','Formación continua y actualización normativa permanente.','Atención en catalán, castellano e inglés.'],
+    /* Comarca */
+    '.comarca-head .section-label': 'Nuestro territorio',
+    '.comarca-head .section-title': 'Arraigados en La Garrotxa',
+    '.comarca-head .section-sub':   'Treinta años asesorando autónomos y empresas de Olot y comarca. Conocemos el territorio, la gente y sus necesidades.',
+    '.comarca-caption':   ['Olot desde el volcán Montsacopa','Castellfollit de la Roca','La Garrotxa desde los cielos','Los bosques de la comarca'],
+    /* Procés */
     '.process .section-label': 'Cómo trabajamos',
     '.process .section-title': 'Nuestro proceso, paso a paso',
     '.process .section-sub':   'Un acompañamiento transparente desde el primer contacto hasta la gestión continuada de su negocio.',
     '.process-step h4':   ['Primera consulta','Diagnóstico y propuesta','Puesta en marcha','Seguimiento continuo'],
     '.process-step p':    ['Escucha activa de su situación, sin compromiso ni coste.','Analizamos la necesidad y le presentamos una propuesta clara y detallada.','Gestionamos todos los trámites e informamos en cada fase del proceso.','Le acompañamos de forma proactiva para anticipar cambios y oportunidades.'],
+    /* Contacte */
     '.contact-head .section-label': 'Contacto',
     '.contact-head .section-title': 'Hablemos sin compromiso',
     '.contact-head .section-sub':   'Primera consulta gratuita. Cuéntenos su situación y le orientaremos sobre la mejor solución.',
+    '.contact-detail strong': ['Teléfono','WhatsApp','Fax','Dirección','Correo electrónico'],
     '.contact-form h3':   'Envíenos un mensaje',
+    'label[for="nom"]':   'Nombre *',
+    'label[for="cognom"]':'Apellidos *',
+    'label[for="email"]': 'Correo electrónico *',
+    'label[for="tel"]':   'Teléfono',
+    'label[for="servei"]':'Área de interés',
+    'label[for="missatge"]':'Mensaje *',
     '.btn-submit':        'Enviar mensaje',
     '.hday':              ['Lun – Vie','Sáb / Dom'],
     '.htime':             ['9:00 – 14:00','Cerrado'],
-    '.contact-hours strong': 'Horario',
-    '.cred-item':         ['Colegio Oficial de Titulados Mercantiles y Empresariales de Girona','AECE – Expertos Contables y Asesores','Assessoria desde 1995']
+    '.contact-hours strong': 'Horario'
   },
   en: {
-    '.hero-badge':        '✓ Assessoria · Olot, since 1995',
+    '.hero-badge':        '✓ Tax & Legal · Olot, since 1995',
     '.hero-sub':          'Tax, labour, commercial and accounting advisory for freelancers and businesses in La Garrotxa. Rigour, proximity and personal service.',
     '.btn-primary':       'Request a free consultation',
     '.hero-stat-label':   ['Years of experience','Active clients','Advisory areas'],
+    /* Services */
     '.services .section-label':  'Our services',
     '.services .section-title':  'Everything your business needs',
     '.services .section-sub':    'We cover all areas of business management. Click on each service to see full details.',
-    '.srv-card h3':       ['Tax Advisory','Labour Advisory','Corporate Advisory','Accounting'],
-    '.srv-card-desc':     ['We optimise your taxation legally and strategically, meeting all deadlines with rigour.','We manage payroll, contracts and labour relations with full legal certainty.','Incorporation, amendment and legal management of companies with full guarantees.','Rigorous bookkeeping and clear financial reports to always keep control of your business.'],
-    '.srv-card-arrow':    ['Learn more →','Learn more →','Learn more →','Learn more →'],
+    '.srv-card h3':       ['Tax Advisory','Labour Advisory','Corporate Advisory','Accounting','Traffic (DGT)','Freelancers','Companies','Inheritances','Grants','Administrative'],
+    '.srv-card-desc':     ['We optimise your taxation legally and strategically, meeting all deadlines with rigour.','We manage payroll, contracts and labour relations with full legal certainty.','Incorporation, amendment and legal management of companies with full guarantees.','Rigorous bookkeeping and clear financial reports to always keep control of your business.','Vehicle transfers, driving licences, cancellations and all DGT procedures without queues.','RETA registration, quarterly VAT & income tax, annual return and ongoing advice for your business.','Incorporation, Corporation Tax, annual accounts and full management for your company.','Inheritance tax, asset inventory, partition and all related estate procedures.','PDR, Digital Kit, ACCIÓ grants and local subsidies. We help you find and apply for them.','NIE, licences, certificates, registrations and any administrative procedure for individuals and companies.'],
+    '.srv-card-arrow':    ['Learn more →','Learn more →','Learn more →','Learn more →','Learn more →','Learn more →','Learn more →','Learn more →','Learn more →','Learn more →'],
+    /* About */
     '.about .section-label':  'About us',
-    '.about .section-title':  'An advisory firm rooted in La Garrotxa',
+    '.about .section-title':  'A firm rooted in La Garrotxa',
     '.about-badge':       ['Registered','Olot, since 1995','+30 years'],
+    '.about-content > p': ['Assessors Garrotxa was founded in 1995 in Olot with a clear mission: to offer a professional, close and trustworthy service to businesses and freelancers in the region.','Three decades of experience have taught us that every client is unique. That is why we work with personalised dedication, understanding each business reality and providing tailored solutions.'],
+    '.about-list li span:last-child': ['Multidisciplinary team: tax, labour, corporate and accounting.','Continuous training and permanent regulatory updates.','Service in Catalan, Spanish and English.'],
+    /* Territory */
+    '.comarca-head .section-label': 'Our territory',
+    '.comarca-head .section-title': 'Rooted in La Garrotxa',
+    '.comarca-head .section-sub':   'Thirty years advising freelancers and businesses in Olot and the region. We know the territory, the people and their needs.',
+    '.comarca-caption':   ['Olot from Montsacopa volcano','Castellfollit de la Roca','La Garrotxa from above','The forests of the region'],
+    /* Process */
     '.process .section-label': 'How we work',
     '.process .section-title': 'Our process, step by step',
     '.process .section-sub':   'Transparent support from the first contact through to the ongoing management of your business.',
     '.process-step h4':   ['Initial consultation','Diagnosis & proposal','Getting started','Ongoing support'],
     '.process-step p':    ['Active listening to your situation, with no commitment or cost.','We analyse your needs and present a clear, detailed proposal.','We handle all procedures and keep you informed at every stage.','We support you proactively to anticipate changes and opportunities.'],
+    /* Contact */
     '.contact-head .section-label': 'Contact',
     '.contact-head .section-title': 'Let\'s talk, no commitment',
     '.contact-head .section-sub':   'Free initial consultation. Tell us about your situation and we will guide you to the best solution.',
+    '.contact-detail strong': ['Phone','WhatsApp','Fax','Address','Email'],
     '.contact-form h3':   'Send us a message',
+    'label[for="nom"]':   'First name *',
+    'label[for="cognom"]':'Surname *',
+    'label[for="email"]': 'Email address *',
+    'label[for="tel"]':   'Phone',
+    'label[for="servei"]':'Area of interest',
+    'label[for="missatge"]':'Message *',
     '.btn-submit':        'Send message',
     '.hday':              ['Mon – Fri','Sat / Sun'],
     '.htime':             ['9:00 – 14:00','Closed'],
-    '.contact-hours strong': 'Opening hours',
-    '.cred-item':         ['Official College of Commercial and Business Graduates of Girona','AECE – Accounting Experts and Advisors','Assessoria since 1995']
+    '.contact-hours strong': 'Opening hours'
   }
+};
+
+window.PAGE_HTML = {
+  ca: { '.hero h1': 'La vostra empresa,<br><em>en bones mans</em><br>des del primer dia.' },
+  es: { '.hero h1': 'Su empresa,<br><em>en buenas manos</em><br>desde el primer día.' },
+  en: { '.hero h1': 'Your business,<br><em>in good hands</em><br>from day one.' }
 };
 </script>
 <script>
@@ -1672,6 +1712,12 @@ window.PAGE_SEL = {
       document.querySelectorAll(s).forEach(function(el,i){
         var v=Array.isArray(vals)?vals[i]:vals;
         if(v!=null) el.textContent=v;
+      });
+    });
+    var html=(window.PAGE_HTML||{})[lang]||{};
+    Object.keys(html).forEach(function(s){
+      document.querySelectorAll(s).forEach(function(el){
+        el.innerHTML=html[s];
       });
     });
     document.querySelectorAll('.lang-btn').forEach(function(b){
