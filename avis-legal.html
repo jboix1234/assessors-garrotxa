@@ -240,5 +240,28 @@
   document.addEventListener('click',function(e){if(!e.target.closest('nav'))links.classList.remove('open');});
 })();
 </script>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" style="display:none" role="dialog" aria-label="Avís de cookies">
+<style>
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a2a;color:#e8e4dc;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;border-top:2px solid #c9a96e;font-family:Inter,sans-serif;font-size:.84rem;line-height:1.6;box-shadow:0 -4px 24px rgba(0,0,0,.35)}
+#cookie-banner p{margin:0;flex:1;min-width:260px;color:rgba(232,228,220,.85)}
+#cookie-banner a{color:#c9a96e;text-decoration:underline}
+.cookie-btns{display:flex;gap:.75rem;flex-shrink:0;flex-wrap:wrap}
+.cookie-btn{padding:.6rem 1.4rem;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border:none;font-family:Inter,sans-serif;transition:all .2s}
+.cookie-btn-accept{background:#c9a96e;color:#1a1a2a}
+.cookie-btn-accept:hover{background:#dfc090}
+.cookie-btn-reject{background:transparent;color:rgba(232,228,220,.7);border:1px solid rgba(232,228,220,.25)}
+.cookie-btn-reject:hover{border-color:rgba(232,228,220,.6);color:#e8e4dc}
+@media(max-width:600px){#cookie-banner{padding:1rem 1.2rem}.cookie-btns{width:100%}.cookie-btn{flex:1;text-align:center}}
+</style>
+<p>Utilitzem cookies pròpies per millorar la vostra experiència. <a href="politica-cookies.html">Política de cookies</a>.</p>
+<div class="cookie-btns">
+<button class="cookie-btn cookie-btn-reject" onclick="cookieChoice('reject')">Rebutjar</button>
+<button class="cookie-btn cookie-btn-accept" onclick="cookieChoice('accept')">Acceptar</button>
+</div>
+</div>
+<script>(function(){window.cookieChoice=function(c){localStorage.setItem("cookie_consent",c);document.getElementById("cookie-banner").style.display="none"};if(!localStorage.getItem("cookie_consent")){document.getElementById("cookie-banner").style.display="flex"}})();</script>
+
 </body>
 </html>
