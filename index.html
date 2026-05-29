@@ -272,17 +272,20 @@
     @media (max-width: 480px) {
       .srv-cards { grid-template-columns: 1fr; gap: 4px; }
       .srv-card {
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 22px 1fr;
+        grid-template-areas: "icon title" "icon arrow";
         align-items: center;
-        padding: 8px 14px;
-        gap: 12px;
+        padding: 7px 14px;
+        column-gap: 12px;
+        row-gap: 1px;
       }
       .srv-card:hover { transform: none; }
       .srv-card-num { display: none; }
-      .srv-card-icon { width: 18px; height: 18px; margin-bottom: 0; flex-shrink: 0; }
-      .srv-card h3 { font-size: 0.88rem; margin-bottom: 0; flex: 1; }
+      .srv-card-icon { grid-area: icon; width: 18px; height: 18px; margin-bottom: 0; align-self: center; }
+      .srv-card h3 { grid-area: title; font-size: 0.85rem; margin-bottom: 0; line-height: 1.2; }
       .srv-card-desc { display: none; }
-      .srv-card-arrow { display: none; }
+      .srv-card-arrow { grid-area: arrow; font-size: 10px; color: var(--red); }
     }
 
     .srv-card {
