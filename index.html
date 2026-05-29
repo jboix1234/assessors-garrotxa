@@ -1607,6 +1607,12 @@
   (function() {
     const splash = document.getElementById('intro-splash');
     if (!splash) return;
+    if (sessionStorage.getItem('splash_shown')) {
+      splash.remove();
+      document.body.classList.remove('splash-active');
+      return;
+    }
+    sessionStorage.setItem('splash_shown', '1');
     splash.addEventListener('animationend', function(e) {
       if (e.animationName === 'splashOut') {
         splash.remove();
