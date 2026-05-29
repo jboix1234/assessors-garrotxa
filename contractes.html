@@ -160,7 +160,6 @@
       <li><a href="index.html#serveis" data-i18n="n.srv">Serveis</a></li>
       <li><a href="index.html#qui-som" data-i18n="n.qs">Qui som</a></li>
       <li><a href="contractes.html" class="active" data-i18n="n.ctr">Contractes</a></li>
-      <li><a href="index.html#ressenyes" data-i18n="n.res">Ressenyes</a></li>
       <li><a href="noticies.html" data-i18n="n.not">Notícies</a></li>
       <li><a href="index.html#contacte" class="nav-cta" data-i18n="n.con">Contactar</a></li>
     </ul>
@@ -397,9 +396,9 @@
 (function(){
   var TRANS=window.PAGE_TRANS||{};
   var NAV={
-    ca:{'n.srv':'Serveis','n.qs':'Qui som','n.ctr':'Contractes','n.res':'Ressenyes','n.not':'Notícies','n.con':'Contactar'},
-    es:{'n.srv':'Servicios','n.qs':'Quiénes somos','n.ctr':'Contratos','n.res':'Reseñas','n.not':'Noticias','n.con':'Contactar'},
-    en:{'n.srv':'Services','n.qs':'About us','n.ctr':'Contracts','n.res':'Reviews','n.not':'News','n.con':'Contact'}
+    ca:{'n.srv':'Serveis','n.qs':'Qui som','n.ctr':'Contractes','n.not':'Notícies','n.con':'Contactar'},
+    es:{'n.srv':'Servicios','n.qs':'Quiénes somos','n.ctr':'Contratos','n.not':'Noticias','n.con':'Contactar'},
+    en:{'n.srv':'Services','n.qs':'About us','n.ctr':'Contracts','n.not':'News','n.con':'Contact'}
   };
   function merge(a,b){var r={};Object.assign(r,a);Object.assign(r,b);return r;}
   function applyLang(lang){
