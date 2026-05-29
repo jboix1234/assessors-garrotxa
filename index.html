@@ -1531,6 +1531,7 @@
         <a href="avis-legal.html">Avís legal</a>
         <a href="politica-privacitat.html">Política de privacitat</a>
         <a href="politica-cookies.html">Cookies</a>
+        <button id="cookie-settings-btn" onclick="openCookieSettings()" style="background:none;border:none;padding:0;cursor:pointer;color:rgba(255,255,255,0.4);font-size:inherit;font-family:inherit;transition:color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">⚙ Configuració de cookies</button>
         <a href="noticies.html?a=1" style="font-size:10px;color:rgba(255,255,255,.12);letter-spacing:.05em;" onmouseover="this.style.color='rgba(255,255,255,.4)'" onmouseout="this.style.color='rgba(255,255,255,.12)'">admin</a>
       </div>
     </div>
@@ -1963,6 +1964,8 @@ window.PAGE_HTML = {
     }
   };
 
+  var settingsLabels = { ca: '⚙ Configuració de cookies', es: '⚙ Configuración de cookies', en: '⚙ Cookie settings' };
+
   function updateCookieLang(lang) {
     var t = texts[lang] || texts.ca;
     var el = document.getElementById('cookie-text');
@@ -1970,6 +1973,8 @@ window.PAGE_HTML = {
     el.innerHTML = t.p + '<a href="politica-cookies.html">' + t.link + '</a>.';
     document.getElementById('cookie-btn-accept').textContent = t.accept;
     document.getElementById('cookie-btn-reject').textContent = t.reject;
+    var btn = document.getElementById('cookie-settings-btn');
+    if (btn) btn.textContent = settingsLabels[lang] || settingsLabels.ca;
   }
 
   // Hook into the existing setLang function
@@ -1982,6 +1987,11 @@ window.PAGE_HTML = {
   window.cookieChoice = function(choice) {
     localStorage.setItem('cookie_consent', choice);
     document.getElementById('cookie-banner').style.display = 'none';
+  }
+
+  window.openCookieSettings = function() {
+    localStorage.removeItem('cookie_consent');
+    document.getElementById('cookie-banner').style.display = 'flex';
   };
 
   if (!localStorage.getItem('cookie_consent')) {
