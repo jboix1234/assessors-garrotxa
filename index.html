@@ -257,7 +257,7 @@
     .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 4px; }
 
     /* ─── SERVICES ─────────────────────────────── */
-    .services { padding: 96px 0; background: var(--grey); }
+    .services { padding: 96px 0; background: var(--grey); overflow: hidden; }
 
     .services-head { margin-bottom: 56px; }
 
@@ -268,9 +268,9 @@
     }
 
     @media (max-width: 1100px) { .srv-cards { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 700px) { .srv-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 700px) { .srv-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 480px) {
-      .srv-cards { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .srv-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
       .srv-card { padding: 20px 16px 18px; }
       .srv-card-num { margin-bottom: 10px; }
       .srv-card-icon { width: 34px; height: 34px; margin-bottom: 12px; }
